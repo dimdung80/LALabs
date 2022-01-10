@@ -11,7 +11,7 @@ Log in to the live AWS environment using the credentials provided. Make sure you
 
 All of the resources needed to complete this lab are available from this GitHub repo.
 
-## Create the email Lambda Function
+### Create the email Lambda Function
 1. In the AWS Management Console, navigate to Lambda.
 2. Click Create function.
 3. With Author from scratch selected, set the following values:
@@ -28,56 +28,60 @@ All of the resources needed to complete this lab are available from this GitHub 
 12. Copy the code.
 13. Return to the AWS Lambda console, and paste the copied code in to lambda_function.py. Keep this tab open for later.
 
-## Verify an Email Address in Simple Email Service (SES)
-Open a new browser tab, and navigate to Simple Email Service.
-Click Create identity.
-Under Identity details, select Email address.
-Enter your email address, and click Create identity.
-In a new browser tab or email client, navigate to your email, open the SES verification email, and click the provided link.
-Go back to Lambda.
-Finish the email Lambda Function Setup
-Within the Lambda function, delete the YOUR_SES_VERIFIED_EMAIL placeholder, and type in the following replacing YOUR_EMAIL with your verified email address:
+### Verify an Email Address in Simple Email Service (SES)
+1. Open a new browser tab, and navigate to Simple Email Service.
+2. Click Create identity.
+3. Under Identity details, select Email address.
+4. Enter your email address, and click Create identity.
+5. In a new browser tab or email client, navigate to your email, open the SES verification email, and click the provided link.
+6. Go back to Lambda.
 
-VERIFIED_EMAIL = 'YOUR_EMAIL'
-Click Deploy.
+### Finish the email Lambda Function Setup
+1. Within the Lambda function, delete the YOUR_SES_VERIFIED_EMAIL placeholder, and type in the following replacing YOUR_EMAIL with your verified email address:
 
-In Function Overview at the top, copy the function ARN and paste it into a text file for later use.
-Create the sms Lambda Function
-In the navigation at the top of the page, click Functions to return to the main Lambda Functions page.
-Click Create function.
-With Author from scratch selected, set the following values:
-Function name: sms
-Runtime: Python 3.8
-Click Change default execution role.
-Select Use an existing role, and pick the LambdaRuntimeRole from the dropdown.
-Click Create function.
-Scroll down to Code source, and double-click lambda_function.py to display the function code.
-Delete the provided code.
-In a new browser tab, open the GitHub repo for this lab.
-Click the sms_reminder.py file.
-Click Raw to display the raw function code.
-Copy the code.
-Return to the AWS Lambda console, and paste the copied code in tolambda_function.py.
-Click Deploy.
-In Function Overview at the top, copy the function ARN and paste it into a text file for later use.
-Create the api_handler Lambda Function
-In the navigation at the top of the page, click Functions to return to the main Lambda Functions page.
-Click Create function.
-With Author from scratch selected, set the following values:
-Function name: api_handler
-Runtime: Python 3.8
-Click Change default execution role.
-Select Use an existing role, and pick the LambdaRuntimeRole from the dropdown.
-Click Create function.
-Scroll down to Code source, and double-click lambda_function.py to display the function code.
-Delete the provided code.
-In a new browser tab, open the GitHub repo for this lab.
-Click the api_handler.py file.
-Click Raw to display the raw function code.
-Copy the code.
-Return to the AWS Lambda console, and paste the copied code in to lambda_function.py.
-Click Deploy. Keep this tab open.
-Create a Step Function State Machine
+    - VERIFIED_EMAIL = 'YOUR_EMAIL'
+2. Click Deploy.
+
+3. In Function Overview at the top, copy the function ARN and paste it into a text file for later use.
+
+### Create the sms Lambda Function
+1. In the navigation at the top of the page, click Functions to return to the main Lambda Functions page.
+2. Click Create function.
+3. With Author from scratch selected, set the following values:
+   - Function name: sms
+   - Runtime: Python 3.8
+4. Click Change default execution role.
+5. Select Use an existing role, and pick the LambdaRuntimeRole from the dropdown.
+6. Click Create function.
+7. Scroll down to Code source, and double-click lambda_function.py to display the function code.
+8. Delete the provided code.
+9. In a new browser tab, open the GitHub repo for this lab.
+10. Click the sms_reminder.py file.
+11. Click Raw to display the raw function code.
+12. Copy the code.
+13. Return to the AWS Lambda console, and paste the copied code in tolambda_function.py.
+14. Click Deploy.
+15. In Function Overview at the top, copy the function ARN and paste it into a text file for later use.
+
+### Create the api_handler Lambda Function
+1. In the navigation at the top of the page, click Functions to return to the main Lambda Functions page.
+2. Click Create function.
+3. With Author from scratch selected, set the following values:
+   - Function name: api_handler
+   - Runtime: Python 3.8
+4. Click Change default execution role.
+5. Select Use an existing role, and pick the LambdaRuntimeRole from the dropdown.
+6. Click Create function.
+7. Scroll down to Code source, and double-click lambda_function.py to display the function code.
+8. Delete the provided code.
+9. In a new browser tab, open the GitHub repo for this lab.
+10. Click the api_handler.py file.
+11. Click Raw to display the raw function code.
+12. Copy the code.
+13. Return to the AWS Lambda console, and paste the copied code in to lambda_function.py.
+14. Click Deploy. Keep this tab open.
+
+### Create a Step Function State Machine
 In a new browser tab, navigate to the Step Functions.
 Click Get started to run the Hello World example.
 In the line under the Review Hello World example title, click here to access more functionality. (Click Leave if prompted with a warning, and then click here again.)
