@@ -82,59 +82,61 @@ All of the resources needed to complete this lab are available from this GitHub 
 14. Click Deploy. Keep this tab open.
 
 ### Create a Step Function State Machine
-In a new browser tab, navigate to the Step Functions.
-Click Get started to run the Hello World example.
-In the line under the Review Hello World example title, click here to access more functionality. (Click Leave if prompted with a warning, and then click here again.)
-Select Write your workflow in code.
-Under Type, select Standard.
-Return to the GitHub repo, and click the step-function-template.json file.
-Click Raw, and copy the code.
-Return to Step Functions, and under Definition, delete the current contents and replace it with your copied code.
-On lines 34 and 52, replace the Resource placeholder value with the copied ARN for email.
-On lines 40 and 62, replace the Resource placeholder value with the copied ARN for sms.
-Click the refresh icon to the right of the code to view the updated function diagram.
-Click Next.
-Under Permissions, select Choose an existing role.
-Under Existing roles, select RoleForStepFunction.
-Scroll to the bottom, and click Create state machine.
-Under Details, copy the ARN.
-Return to Lambda, and select Functions > api_handler.
-Scroll down to Code source and double-click lambda_function.py.
-On line 6, replace the SFN_ARN placeholder value with the ARN you just copied.
-Click Deploy.
-Create the API Gateway
-In the AWS Management Console, navigate to API Gateway.
-Click Get Started, and then click OK.
-Under REST API (not the Private one), select Build.
-Under Choose the protocol, select REST.
-Under Create new API, select New API.
-Under Settings, set the following values:
-API name: reminders
-Endpoint Type: Regional
-Click Create API.
-Click Actions > Create Resource.
-In Resource Name, enter reminders.
-Select Enable API Gateway CORS.
-Click Create Resource.
-With /reminders selected, click Actions > Create Method.
-In the new dropdown under /reminders, select POST and click the adjacent checkmark icon.
-In /reminders - POST - Setup, set the following values:
-Integration type: Lambda Function
-Use Lambda Proxy integration: Selected
-Lambda Region: us-east-1
-Lambda Function: api_handler
-Click Save.
-Click OK.
-Click Actions > Deploy API.
-Set the following values:
-Deployment stage: New Stage
-Stage name: prod
-Click Deploy.
+1. In a new browser tab, navigate to the Step Functions.
+2. Click Get started to run the Hello World example.
+3. In the line under the Review Hello World example title, click here to access more functionality. (Click Leave if prompted with a warning, and then click here again.)
+4. Select Write your workflow in code.
+5. Under Type, select Standard.
+6. Return to the GitHub repo, and click the step-function-template.json file.
+7. Click Raw, and copy the code.
+8. Return to Step Functions, and under Definition, delete the current contents and replace it with your copied code.
+9. On lines 34 and 52, replace the Resource placeholder value with the copied ARN for email.
+10. On lines 40 and 62, replace the Resource placeholder value with the copied ARN for sms.
+11. Click the refresh icon to the right of the code to view the updated function diagram.
+12. Click Next.
+13. Under Permissions, select Choose an existing role.
+14. Under Existing roles, select RoleForStepFunction.
+15. Scroll to the bottom, and click Create state machine.
+16. Under Details, copy the ARN.
+17. Return to Lambda, and select Functions > api_handler.
+18. Scroll down to Code source and double-click lambda_function.py.
+19. On line 6, replace the SFN_ARN placeholder value with the ARN you just copied.
+20. Click Deploy.
+
+### Create the API Gateway
+1. In the AWS Management Console, navigate to API Gateway.
+2. Click Get Started, and then click OK.
+3. Under REST API (not the Private one), select Build.
+4. Under Choose the protocol, select REST.
+5. Under Create new API, select New API.
+6. Under Settings, set the following values:
+   - API name: reminders
+   - Endpoint Type: Regional
+7. Click Create API.
+8. Click Actions > Create Resource.
+9. In Resource Name, enter reminders.
+10. Select Enable API Gateway CORS.
+11. Click Create Resource.
+12 With /reminders selected, click Actions > Create Method.
+13. In the new dropdown under /reminders, select POST and click the adjacent checkmark icon.
+14. In /reminders - POST - Setup, set the following values:
+    - Integration type: Lambda Function
+    - Use Lambda Proxy integration: Selected
+    - Lambda Region: us-east-1
+    - Lambda Function: api_handler
+15. Click Save
+16. Click OK
+17. Click Actions > Deploy API.
+18. Set the following values:
+    - Deployment stage: New Stage
+    - Stage name: prod
+19. Click Deploy
 Note: You may ignore any Web Application Firewall (WAF) permissions warning messages received after deployment.
 
-At the top of the page, under prod Stage Editor, copy the Invoke URL for later use.
-Create the Static S3 Website
-Return to the GitHub repo, and download a local copy of the static_website folder with its file contents. You can go to the static_website folder and download a copy of each file, or you can go to the main repository, click Code, and select Download ZIP to get all of the files in the repo.
+20. At the top of the page, under prod Stage Editor, copy the Invoke URL for later use.
+
+### Create the Static S3 Website
+1. Return to the GitHub repo, and download a local copy of the static_website folder with its file contents. You can go to the static_website folder and download a copy of each file, or you can go to the main repository, click Code, and select Download ZIP to get all of the files in the repo.
 In your local static_website folder, open the formlogic.js file.
 On line 5, delete the API_ENDPOINT placeholder text, and paste in the Invoke URL you previously copied from API Gateway, keeping /reminders on the end of the string:
 
