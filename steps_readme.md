@@ -1,3 +1,4 @@
+Building a Serverless Application Using Step Functions, API Gateway, Lambda, and S3 in AWS
 Introduction
 In this AWS hands-on lab, we will create a fully working serverless reminder application using S3, Lambda, API Gateway, Step Functions, Simple Email Service, and Simple Notification Service.
 
